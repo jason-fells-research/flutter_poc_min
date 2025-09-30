@@ -11,12 +11,13 @@ class Api {
 
   Uri _u(String path) => Uri.parse('$base$path');
 
-  Future<List<dynamic>> listTasks() async {
+  Future<List<Map<String, dynamic>>> listTasks() async {
     final resp = await http.get(_u('/tasks'));
     if (resp.statusCode != 200) {
       throw Exception('Failed: ${resp.statusCode}');
     }
-    return jsonDecode(resp.body) as List<dynamic>;
+    final raw = jsonDecode(resp.body) as List;
+    return raw.cast<Map<String, dynamic>>();
   }
 
   Future<Map<String, dynamic>> getTask(String id) async {
@@ -25,6 +26,19 @@ class Api {
       throw Exception('Failed: ${resp.statusCode}');
     }
     return jsonDecode(resp.body) as Map<String, dynamic>;
+  }
+
+  // --- No-op methods so the FE's optimistic UI compiles against read-only API ---
+  Future<void> createTask(String title) async {
+    // Intentionally a no-op: serverless API is read-only for the demo.
+  }
+
+  Future<void> updateTaskFull(Map<String, dynamic> full) async {
+    // Intentionally a no-op.
+  }
+
+  Future<void> deleteTask(String id) async {
+    // Intentionally a no-op.
   }
 }
 
