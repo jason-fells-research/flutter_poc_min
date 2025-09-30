@@ -1,0 +1,34 @@
+{
+  "tasks": [
+    {
+      "id": "1",
+      "title": "Debug service",
+      "done": false
+    },
+    {
+      "id": "2",
+      "title": "Simple Flutter FE",
+      "done": false
+    },
+    {
+      "id": "3",
+      "title": "Call REST",
+      "done": false
+    },
+    {
+      "id": "4",
+      "title": "Dimostra Data",
+      "done": false
+    },
+    {
+      "id": "6a8a",
+      "title": "Toccabile",
+      "done": false
+    },
+    {
+      "id": "a0d9",
+      "title": "Nuovo Task",
+      "done": false
+    }
+  ]
+}
