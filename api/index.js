@@ -1,40 +1,39 @@
-import { readFile } from 'node:fs/promises';
-import path from 'node:path';
+import fs from 'fs';
+import path from 'path';
 
-export default async function handler(req, res) {
-  // CORS
+export default function handler(req, res) {
+  // CORS (safe for your FE + curl)
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  if (req.method === 'OPTIONS') return res.status(204).end();
+  if (req.method === 'OPTIONS') { res.status(200).end(); return; }
 
-  // Always resolve from project root on Vercel
   const dbPath = path.join(process.cwd(), 'db.json');
-
-  let tasks = [];
+  let db;
   try {
-    const raw = await readFile(dbPath, 'utf-8');
-    const data = JSON.parse(raw);
-    tasks = Array.isArray(data.tasks) ? data.tasks : [];
+    db = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
   } catch (e) {
-    // Fallback seed so the UI isn't empty even if the file is missing
-    tasks = [
-      { id: 1, title: 'Inviare il video demo', done: false },
-      { id: 2, title: 'Aggiornare la UI (checkbox)', done: false },
-      { id: 3, title: 'Rendere pubblico il repo', done: true }
-    ];
+    res.status(500).json({ error: 'DB_READ_FAILED', details: String(e) });
+    return;
   }
 
-  // /tasks or /tasks/:id (GET only)
-  if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
+  // /tasks or /tasks/:id
+  const match = req.url.match(/^\/tasks(?:\/([^\/?#]+))?$/);
+  if (!match) {
+    res.status(404).json({ error: 'NOT_FOUND' });
+    return;
+  }
 
-  const m = req.url.match(/^\/tasks(?:\/([^\/\?]+))?/);
-  if (!m) return res.status(404).json({ error: 'Not found' });
+  const id = match[1];
+  if (!id) {
+    res.setHeader('Content-Type', 'application/json; charset=utf-8');
+    res.status(200).end(JSON.stringify(db.tasks ?? []));
+    return;
+  }
 
-  const id = m[1];
-  if (!id) return res.status(200).json(tasks);
+  const item = (db.tasks ?? []).find(t => String(t.id) === String(id));
+  if (!item) { res.status(404).json({ error: 'TASK_NOT_FOUND' }); return; }
 
-  const item = tasks.find(t => String(t.id) === String(id));
-  if (!item) return res.status(404).json({ error: 'Task not found' });
-  return res.status(200).json(item);
+  res.setHeader('Content-Type', 'application/json; charset=utf-8');
+  res.status(200).end(JSON.stringify(item));
 }
