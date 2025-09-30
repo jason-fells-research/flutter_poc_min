@@ -1,7 +1,7 @@
 {
   "tasks": [
-    { "id": 1, "title": "Wire up API to FE", "done": false },
-    { "id": 2, "title": "Polish UI copy",    "done": false },
-    { "id": 3, "title": "Record demo",        "done": true  }
+    { "id": 1, "title": "Inviare il video demo", "done": false },
+    { "id": 2, "title": "Aggiornare la UI (checkbox)", "done": false },
+    { "id": 3, "title": "Rendere pubblico il repo", "done": true }
   ]
 }
