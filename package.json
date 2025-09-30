@@ -1,0 +1,7 @@
+{
+  "name": "flutter-poc-api",
+  "private": true,
+  "dependencies": {
+    "json-server": "^0.17.4"
+  }
+}
