@@ -20,7 +20,7 @@ class Api {
     return raw.cast<Map<String, dynamic>>();
   }
 
-  Future<Map<String, dynamic>> getTask(String id) async {
+  Future<Map<String, dynamic>> getTask(dynamic id) async {
     final resp = await http.get(_u('/tasks/$id'));
     if (resp.statusCode != 200) {
       throw Exception('Failed: ${resp.statusCode}');
@@ -37,7 +37,7 @@ class Api {
     // Intentionally a no-op.
   }
 
-  Future<void> deleteTask(String id) async {
+  Future<void> deleteTask(dynamic id) async {
     // Intentionally a no-op.
   }
 }
