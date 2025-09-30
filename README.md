@@ -1,16 +1,9 @@
-# flutter_poc_min
+# Minimal Flutter POC (FE-only)
+Scope: Web FE parity demo — login skipped — tasks list with REST calls to a simple mock (json-server).
+Run:
+1) npx json-server --port 8080 --watch ../db.json
+2) flutter run -d chrome --dart-define=BASE_URL=http://localhost:8080
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Notes:
+- Optimistic UI on toggle/delete for clean demo (server sync attempted).
+- No container/K8s/hardening etc. Only FE touchpoints as requested.
