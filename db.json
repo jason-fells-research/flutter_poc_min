@@ -1,9 +1,7 @@
 {
   "tasks": [
-    { "id": 1, "title": "Debug service", "done": false },
-    { "id": 2, "title": "Simple Flutter FE", "done": false },
-    { "id": 3, "title": "Call REST", "done": false },
-    { "id": 4, "title": "Dimostra Data", "done": false },
-    { "id": 5, "title": "Pranzo con Mauro", "done": false }
+    { "id": 1, "title": "Wire up API to FE", "done": false },
+    { "id": 2, "title": "Polish UI copy",    "done": false },
+    { "id": 3, "title": "Record demo",        "done": true  }
   ]
 }
