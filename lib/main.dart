@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'api.dart';
 import 'tasks_page.dart';
 
-const String kBaseUrl = String.fromEnvironment('BASE_URL', defaultValue: 'http://localhost:8080');
-
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -11,10 +9,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final api = ApiClient(kBaseUrl);
+    // If BASE_URL is provided at runtime, Api() will use it.
+    final api = Api();
     return MaterialApp(
-      title: 'Minimal Flutter POC',
-      theme: ThemeData(useMaterial3: true),
+      title: 'Tasks Demo',
+      theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.blue),
       home: TasksPage(api: api),
     );
   }
