@@ -98,7 +98,7 @@ class _TasksPageState extends State<TasksPage> {
           child: Row(children: [
             Expanded(child: TextField(
               controller: _newCtl,
-              decoration: const InputDecoration(hintText: 'Nuova attività...'))),
+              decoration: const InputDecoration(hintText: 'New task...'))),
             const SizedBox(width: 8),
             ElevatedButton(onPressed: _create, child: const Text('Aggiungi')),
           ]),
