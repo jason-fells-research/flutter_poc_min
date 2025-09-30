@@ -78278,7 +78278,7 @@ while(true)switch(s){case 0:return A.S(null,r)}})
 return A.T($async$E9,r)}}
 A.IS.prototype={
 N(a){var s=null
-return new A.xo(new A.zP(new A.Wn(""),s),"Tasks Demo",A.t5(s,s,B.en,!0),s)}}
+return new A.xo(new A.zP(new A.Wn("https://flutterpoc-a3h507rmr-ethraeon-systems.vercel.app"),s),"Tasks Demo",A.t5(s,s,B.en,!0),s)}}
 A.zP.prototype={
 aq(){var s=A.c([],t.H7)
 return new A.Du(s,new A.LC(B.y5,$.ar()))}}
