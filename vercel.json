@@ -1,12 +1,10 @@
 {
   "version": 2,
   "builds": [
-    { "src": "api/*.js", "use": "@vercel/node" },
-    { "src": "web_dist/**", "use": "@vercel/static" }
+    { "src": "api/index.js", "use": "@vercel/node" }
   ],
   "routes": [
     { "src": "^/tasks(?:/.*)?$", "dest": "/api/index.js" },
-    { "handle": "filesystem" },
-    { "src": "^/(.*)$", "dest": "/web_dist/$1" }
+    { "src": "^(?!/api/|/tasks).*$", "dest": "/web_dist/index.html" }
   ]
 }
