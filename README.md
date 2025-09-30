@@ -2,18 +2,16 @@
 
 **Live FE + API base:** https://flutterpocmin.vercel.app
 
-This is a minimal Proof-of-Concept showing a Flutter web frontend connected to a simple read-only API (served via Vercel).
-
 ## Demo Features
-- Task list with checkbox + delete UI
-- Backed by a mock JSON dataset (`db.json`)
-- Optimistic UI for smooth demo (no full persistence)
+- Lista attività (UI con checkbox ed elimina)
+- Backend mock JSON (`db.json`)
+- UI ottimistica (solo demo)
 
-## API Endpoints
-- `GET /tasks` → list all tasks
-- `GET /tasks/:id` → get a single task
+## API (read-only)
+- `GET /tasks` — elenco attività
+- `GET /tasks/:id` — dettaglio
 
-## Sample Data (`db.json`)
+### Esempio `db.json`
 ```json
 {
   "tasks": [
