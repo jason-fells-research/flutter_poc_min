@@ -1,22 +1,18 @@
 # Minimal Flutter POC (web)
 
-**Live FE + API base:** https://flutterpocmin.vercel.app
+# Minimal Flutter POC (web) — IT
 
-## Demo Features
-- Lista attività (UI con checkbox ed elimina)
-- Backend mock JSON (`db.json`)
-- UI ottimistica (solo demo)
+**LIVE**: https://flutterpocmin.vercel.app  
+**API**: `GET /tasks`, `GET /tasks/:id`
 
-## API (read-only)
-- `GET /tasks` — elenco attività
-- `GET /tasks/:id` — dettaglio
+## Funzioni
+- Lista attività con checkbox e elimina (UI ottimistica, demo)
+- Backend mock JSON (`db.json`, sola lettura) su Vercel Function
 
-### Esempio `db.json`
-```json
-{
-  "tasks": [
-    { "id": 1, "title": "Inviare il video demo", "done": false },
-    { "id": 2, "title": "Aggiornare la UI (checkbox)", "done": false },
-    { "id": 3, "title": "Rendere pubblico il repo", "done": true }
-  ]
-}
+## Avvio locale
+```bash
+# 1) API mock su 8080
+npx json-server --port 8080 --watch ./db.json
+
+# 2) Flutter Web in locale (usa BASE_URL per puntare alla funzione mock)
+flutter run -d chrome --dart-define=BASE_URL=http://localhost:8080
