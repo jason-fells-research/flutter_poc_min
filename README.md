@@ -17,3 +17,12 @@ Usa direttamente l’API di produzione (stessa origine) o passa `BASE_URL` se vu
 flutter clean
 flutter pub get
 flutter run -d chrome --dart-define=BASE_URL=https://flutterpocmin.vercel.app
+
+### macOS / iOS / Android
+
+Anche qui puoi puntare all’API di produzione per avere dati durante il debug:
+
+```bash
+flutter run -d macos --dart-define=BASE_URL=https://flutterpocmin.vercel.app
+
+Non serve più json-server in locale: l’API mock è su Vercel.
