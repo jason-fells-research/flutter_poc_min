@@ -1,14 +1,21 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
-// Empty by default => relative to current origin (works on Vercel)
-const _BASE = String.fromEnvironment('BASE_URL', defaultValue: '');
+// On web: keep relative '' (same-origin).
+// On non-web (macOS/iOS/Android): default to the production domain.
+const String _DEFAULT_BASE_NON_WEB = 'https://flutterpocmin.vercel.app';
+
+final String _BASE = const String.fromEnvironment(
+  'BASE_URL',
+  defaultValue: kIsWeb ? '' : _DEFAULT_BASE_NON_WEB,
+);
+
 Uri _u(String path) => Uri.parse('$_BASE$path');
 
 class Api {
   const Api();
 
-  // ----- static helpers (used by tests/other code if needed)
   static Future<List<Map<String, dynamic>>> listTasksStatic() async {
     final resp = await http.get(_u('/tasks'));
     if (resp.statusCode != 200) {
@@ -26,23 +33,17 @@ class Api {
     return jsonDecode(resp.body) as Map<String, dynamic>;
   }
 
-  // ----- instance API (what lib/tasks_page.dart calls)
   Future<List<Map<String, dynamic>>> listTasks() => listTasksStatic();
 
-  // Demo is read-only on the server. Keep the UI shape by no-op stubs:
-  Future<void> createTask(String title) async {
-    // no-op on server; simulate latency so UI feels normal
-    await Future<void>.delayed(const Duration(milliseconds: 150));
-  }
+  // Read-only demo; keep shape for UI actions
+  Future<void> createTask(String title) async =>
+      Future<void>.delayed(const Duration(milliseconds: 150));
 
-  Future<void> updateTaskFull(Map<String, dynamic> full) async {
-    await Future<void>.delayed(const Duration(milliseconds: 150));
-  }
+  Future<void> updateTaskFull(Map<String, dynamic> full) async =>
+      Future<void>.delayed(const Duration(milliseconds: 150));
 
-  Future<void> deleteTask(dynamic id) async {
-    // accepts int or string; server is read-only
-    await Future<void>.delayed(const Duration(milliseconds: 150));
-  }
+  Future<void> deleteTask(dynamic id) async =>
+      Future<void>.delayed(const Duration(milliseconds: 150));
 
   Future<Map<String, dynamic>> getTask(String id) => getTaskStatic(id);
 }
