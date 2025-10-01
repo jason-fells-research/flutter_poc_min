@@ -1,5 +1,3 @@
-# Minimal Flutter POC (web)
-
 # Minimal Flutter POC (web) — IT
 
 **LIVE**: https://flutterpocmin.vercel.app  
