@@ -1,6 +1,6 @@
 name: flutter_poc_min
-description: A new Flutter project.
-publish_to: "none" # Remove this line if you want to publish to pub.dev
+description: Minimal Flutter POC (web + read-only API)
+publish_to: "none"
 
 version: 1.0.0+1
 
@@ -11,18 +11,13 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # Default Flutter icons
   cupertino_icons: ^1.0.2
-
-  # Your project’s dependencies (already detected)
-  flutter_secure_storage: ^9.0.0
   http: ^1.2.2
+  flutter_secure_storage: ^9.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  # Lints for better code practices
   flutter_lints: ^3.0.0
 
 flutter:
