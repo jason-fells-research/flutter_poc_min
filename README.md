@@ -6,10 +6,11 @@ Simple Flutter front end.
 
 | Path | What it holds |
 |---|---|
-| `lib/` | the Flutter app (3 files); `lib_backup_1759245403/` is an earlier copy |
+| `lib/` | the Flutter app (4 files); `lib_backup_1759245403/` is an earlier copy |
 | `android/`, `ios/`, `macos/`, `linux/`, `windows/`, `web/` | platform targets |
 | `web_dist/`, `public/`, `vercel.json` | the web build and its Vercel deployment |
 | `api/`, `db.json` | a small API and its data file |
+| `SimpleFlutterFE_20250930.mov`, `flutter_poc_min_src.zip` | a screen recording and the source archive |
 | `test/`, `.github/` | the test and the workflow |
 | `pubspec.yaml`, `analysis_options.yaml` | Flutter package and lint settings |
 
