@@ -22,7 +22,7 @@ flutter run
 
 ## Location
 
-The mobile proof of concept referenced in `ethraeon-master-repo-ecosystems/docs/FLUTTER-POC-MOBILE-REFERENCE.md`. The apps queued for publishing (ETHRAEON Trinity, AURIX, CORIX) follow the founder brief.
+The mobile proof of concept referenced in `ethraeon-master-repo-ecosystems/docs/FLUTTER-POC-MOBILE-REFERENCE.md`. The apps ETHRAEON Trinity, AURIX and CORIX follow the founder brief.
 
 ## Contact
 
