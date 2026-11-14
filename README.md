@@ -1,53 +1,33 @@
-# Minimal Flutter POC (web) — EN
+# flutter_poc_min
 
-**LIVE:** https://flutterpocmin.vercel.app  
-**API (read-only):** `GET /tasks`, `GET /tasks/:id` (same origin on Vercel)
+Simple Flutter front end.
 
-## Features
-- Task list with checkboxes and delete (optimistic UI, demo)
-- Mock backend JSON (`db.json`, read-only) served by a Vercel Function (`/api/index.js`)
-- UI in Italian
+## Layout
 
-## Local Development
+| Path | What it holds |
+|---|---|
+| `lib/` | the Flutter app (3 files); `lib_backup_1759245403/` is an earlier copy |
+| `android/`, `ios/`, `macos/`, `linux/`, `windows/`, `web/` | platform targets |
+| `web_dist/`, `public/`, `vercel.json` | the web build and its Vercel deployment |
+| `api/`, `db.json` | a small API and its data file |
+| `test/`, `.github/` | the test and the workflow |
+| `pubspec.yaml`, `analysis_options.yaml` | Flutter package and lint settings |
 
-### Web (recommended)
-Use the production API (same origin) or pass `BASE_URL` explicitly:
+## Run
 
-    flutter clean
-    flutter pub get
-    flutter run -d chrome --dart-define=BASE_URL=https://flutterpocmin.vercel.app
+```bash
+flutter pub get
+flutter run
+```
 
-### macOS / iOS / Android
-You can also point to the production API during native debug:
+## Location
 
-    flutter run -d macos --dart-define=BASE_URL=https://flutterpocmin.vercel.app
+The mobile proof of concept referenced in `ethraeon-master-repo-ecosystems/docs/FLUTTER-POC-MOBILE-REFERENCE.md`. The apps queued for publishing (ETHRAEON Trinity, AURIX, CORIX) follow the founder brief.
 
-No local json-server is required. The mock API is on Vercel.
+## Contact
 
----
+https://contact.ethraeon.ai/
 
-# Minimal Flutter POC (web) — IT
+Copyright 2024-2026 ETHRAEON Systems.
 
-**LIVE:** https://flutterpocmin.vercel.app  
-**API (solo lettura):** `GET /tasks`, `GET /tasks/:id` (stessa origine su Vercel)
-
-## Funzioni
-- Lista attività con checkbox ed elimina (UI ottimistica, demo)
-- Backend mock JSON (`db.json`, solo lettura) servito da una Vercel Function (`/api/index.js`)
-- Interfaccia in italiano
-
-## Avvio locale
-
-### Web (consigliato)
-Usa l’API di produzione (stessa origine) oppure passa `BASE_URL` in modo esplicito:
-
-    flutter clean
-    flutter pub get
-    flutter run -d chrome --dart-define=BASE_URL=https://flutterpocmin.vercel.app
-
-### macOS / iOS / Android
-Puoi puntare all’API di produzione anche durante il debug nativo:
-
-    flutter run -d macos --dart-define=BASE_URL=https://flutterpocmin.vercel.app
-
-Non serve più json-server in locale: l’API mock è su Vercel.
+Humanitas Ante Machinam.
